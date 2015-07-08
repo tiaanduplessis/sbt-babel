@@ -58,6 +58,25 @@
     <span class="pl-s"><span class="pl-pds">"</span>babel-core<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>^5.6.15<span class="pl-pds">"</span></span>
   }
 }</pre></div>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>For example with <code>build.sbt</code>:</p>
+
+<div class="highlight highlight-scala"><pre><span class="pl-en">BabelKeys</span>.options <span class="pl-k">:</span><span class="pl-k">=</span> <span class="pl-en">WebJs</span>.<span class="pl-en">JS</span>.<span class="pl-en">Object</span>(
+  <span class="pl-s"><span class="pl-pds">"</span>stage<span class="pl-pds">"</span></span> <span class="pl-k">-</span><span class="pl-k">&gt;</span> <span class="pl-c1">2</span>,
+  <span class="pl-s"><span class="pl-pds">"</span>comments<span class="pl-pds">"</span></span> <span class="pl-k">-</span><span class="pl-k">&gt;</span> <span class="pl-c1">false</span>,
+  <span class="pl-s"><span class="pl-pds">"</span>modules<span class="pl-pds">"</span></span> <span class="pl-k">-</span><span class="pl-k">&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>common<span class="pl-pds">"</span></span>
+)</pre></div>
+
+<p>Or locally in your project with a <code>.babelrc</code> file:</p>
+
+<div class="highlight highlight-json"><pre>{
+  <span class="pl-s"><span class="pl-pds">"</span>stage<span class="pl-pds">"</span></span>: <span class="pl-c1">2</span>,
+  <span class="pl-s"><span class="pl-pds">"</span>comments<span class="pl-pds">"</span></span>: <span class="pl-c1">false</span>,
+  <span class="pl-s"><span class="pl-pds">"</span>modules<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>common<span class="pl-pds">"</span></span>
+}</pre></div>
         </section>
 
         <aside id="sidebar">
@@ -77,6 +96,16 @@
       </div>
     </div>
 
-  
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-64913246-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
   </body>
 </html>
