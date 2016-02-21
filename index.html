@@ -29,53 +29,51 @@
       <div class="inner clearfix">
         <section id="main-content">
           <h1>
-<a id="sbt-babel-" class="anchor" href="#sbt-babel-" aria-hidden="true"><span class="octicon octicon-link"></span></a>sbt-babel <a href="https://travis-ci.org/zenato/sbt-babel"><img src="https://travis-ci.org/zenato/sbt-babel.svg?branch=master" alt="Build Status"></a>
+<a id="sbt-babel-" class="anchor" href="#sbt-babel-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>sbt-babel <a href="https://travis-ci.org/zenato/sbt-babel"><img src="https://travis-ci.org/zenato/sbt-babel.svg?branch=master" alt="Build Status"></a>
 </h1>
 
 <p>An SBT plugin to perform <a href="http://babeljs.io">Babel</a> compilation.</p>
 
 <h2>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
 
 <p>To use this plugin use the addSbtPlugin command within your project's <code>plugins.sbt</code> file:</p>
 
-<div class="highlight highlight-scala"><pre>addSbtPlugin(<span class="pl-s"><span class="pl-pds">"</span>io.teamscala.sbt<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>sbt-babel<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>1.0.2<span class="pl-pds">"</span></span>)</pre></div>
+<div class="highlight highlight-source-scala"><pre>addSbtPlugin(<span class="pl-s"><span class="pl-pds">"</span>io.teamscala.sbt<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>sbt-babel<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>1.0.3<span class="pl-pds">"</span></span>)</pre></div>
 
 <p>Your project's build file also needs to enable sbt-web plugins. For example with <code>build.sbt</code>:</p>
 
-<div class="highlight highlight-scala"><pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">root</span> <span class="pl-k">=</span> (project in file(<span class="pl-s"><span class="pl-pds">"</span>.<span class="pl-pds">"</span></span>)).enablePlugins(<span class="pl-en">SbtWeb</span>)
+<div class="highlight highlight-source-scala"><pre><span class="pl-k">lazy</span> <span class="pl-k">val</span> <span class="pl-en">root</span> <span class="pl-k">=</span> (project in file(<span class="pl-s"><span class="pl-pds">"</span>.<span class="pl-pds">"</span></span>)).enablePlugins(<span class="pl-en">SbtWeb</span>)
 
 <span class="pl-en">JsEngineKeys</span>.engineType <span class="pl-k">:</span><span class="pl-k">=</span> <span class="pl-en">JsEngineKeys</span>.<span class="pl-en">EngineType</span>.<span class="pl-en">Node</span></pre></div>
 
 <p>Install babel-core, either globally with npm:</p>
 
-<div class="highlight highlight-shell"><pre>npm install babel-core -g</pre></div>
+<div class="highlight highlight-source-shell"><pre>npm install babel-core -g</pre></div>
 
 <p>Or locally in your project with a <code>package.json</code> file:</p>
 
-<div class="highlight highlight-json"><pre>{
+<div class="highlight highlight-source-json"><pre>{
   <span class="pl-s"><span class="pl-pds">"</span>devDependencies<span class="pl-pds">"</span></span>: {
-    <span class="pl-s"><span class="pl-pds">"</span>babel-core<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>^5.8.23<span class="pl-pds">"</span></span>
+    <span class="pl-s"><span class="pl-pds">"</span>babel-core<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>^6.5.1<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>babel-preset-stage-0<span class="pl-pds">"</span></span> <span class="pl-ii">//</span> <span class="pl-ii">If</span> <span class="pl-ii">you</span> <span class="pl-ii">needed</span> <span class="pl-ii">more..</span>
   }
 }</pre></div>
 
 <h2>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
 
 <p>For example with <code>build.sbt</code>:</p>
 
-<div class="highlight highlight-scala"><pre><span class="pl-en">BabelKeys</span>.options <span class="pl-k">:</span><span class="pl-k">=</span> <span class="pl-en">WebJs</span>.<span class="pl-en">JS</span>.<span class="pl-en">Object</span>(
-  <span class="pl-s"><span class="pl-pds">"</span>stage<span class="pl-pds">"</span></span> <span class="pl-k">-</span><span class="pl-k">&gt;</span> <span class="pl-c1">2</span>,
-  <span class="pl-s"><span class="pl-pds">"</span>comments<span class="pl-pds">"</span></span> <span class="pl-k">-</span><span class="pl-k">&gt;</span> <span class="pl-c1">false</span>,
-  <span class="pl-s"><span class="pl-pds">"</span>modules<span class="pl-pds">"</span></span> <span class="pl-k">-</span><span class="pl-k">&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>common<span class="pl-pds">"</span></span>
+<div class="highlight highlight-source-scala"><pre><span class="pl-en">BabelKeys</span>.options <span class="pl-k">:</span><span class="pl-k">=</span> <span class="pl-en">WebJs</span>.<span class="pl-en">JS</span>.<span class="pl-en">Object</span>(
+  <span class="pl-s"><span class="pl-pds">"</span>presets<span class="pl-pds">"</span></span> <span class="pl-k">-</span><span class="pl-k">&gt;</span> <span class="pl-en">List</span>(<span class="pl-s"><span class="pl-pds">"</span>stage-0<span class="pl-pds">"</span></span>)
+  <span class="pl-c">// More options ...</span>
 )</pre></div>
 
 <p>Or locally in your project with a <code>.babelrc</code> file:</p>
 
-<div class="highlight highlight-json"><pre>{
-  <span class="pl-s"><span class="pl-pds">"</span>stage<span class="pl-pds">"</span></span>: <span class="pl-c1">2</span>,
-  <span class="pl-s"><span class="pl-pds">"</span>comments<span class="pl-pds">"</span></span>: <span class="pl-c1">false</span>,
-  <span class="pl-s"><span class="pl-pds">"</span>modules<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>common<span class="pl-pds">"</span></span>
+<div class="highlight highlight-source-json"><pre>{
+  <span class="pl-s"><span class="pl-pds">"</span>presets<span class="pl-pds">"</span></span>: [<span class="pl-s"><span class="pl-pds">"</span>stage-0<span class="pl-pds">"</span></span>]
 }</pre></div>
         </section>
 
