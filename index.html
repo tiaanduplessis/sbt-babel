@@ -1,34 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <title>Sbt-babel by zenato</title>
 
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <title>Sbt-babel by zenato</title>
   </head>
-
   <body>
-    <header>
-      <div class="inner">
+    <div class="wrapper">
+      <header>
         <h1>Sbt-babel</h1>
-        <h2>An SBT plugin to perform Babel compilation.</h2>
-        <a href="https://github.com/zenato/sbt-babel" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
+        <p>An SBT plugin to perform Babel compilation.</p>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h1>
+        <p class="view"><a href="https://github.com/zenato/sbt-babel">View the Project on GitHub <small>zenato/sbt-babel</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/zenato/sbt-babel/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/zenato/sbt-babel/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/zenato/sbt-babel">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
 <a id="sbt-babel-" class="anchor" href="#sbt-babel-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>sbt-babel <a href="https://travis-ci.org/zenato/sbt-babel"><img src="https://travis-ci.org/zenato/sbt-babel.svg?branch=master" alt="Build Status"></a>
 </h1>
 
@@ -39,7 +39,7 @@
 
 <p>To use this plugin use the addSbtPlugin command within your project's <code>plugins.sbt</code> file:</p>
 
-<div class="highlight highlight-source-scala"><pre>addSbtPlugin(<span class="pl-s"><span class="pl-pds">"</span>io.teamscala.sbt<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>sbt-babel<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>1.0.4<span class="pl-pds">"</span></span>)</pre></div>
+<div class="highlight highlight-source-scala"><pre>addSbtPlugin(<span class="pl-s"><span class="pl-pds">"</span>io.teamscala.sbt<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>sbt-babel<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>1.0.5<span class="pl-pds">"</span></span>)</pre></div>
 
 <p>Your project's build file also needs to enable sbt-web plugins. For example with <code>build.sbt</code>:</p>
 
@@ -55,9 +55,9 @@
 
 <div class="highlight highlight-source-json"><pre>{
   <span class="pl-s"><span class="pl-pds">"</span>devDependencies<span class="pl-pds">"</span></span>: {
-    <span class="pl-s"><span class="pl-pds">"</span>babel-core<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>^6.8.0<span class="pl-pds">"</span></span>,
-    <span class="pl-ii">//If</span> <span class="pl-ii">you</span> <span class="pl-ii">needed</span> <span class="pl-ii">more...</span>
-    <span class="pl-s"><span class="pl-pds">"</span>babel-preset-stage-0<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>^6.8.0<span class="pl-pds">"</span></span>
+    <span class="pl-s"><span class="pl-pds">"</span>babel-core<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>^6.9.1<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>[If you needed more...]<span class="pl-pds">"</span></span><span class="pl-ii">,</span>
+    <span class="pl-s"><span class="pl-pds">"</span>babel-preset-stage-0<span class="pl-pds">"</span></span>
   }
 }</pre></div>
 
@@ -76,26 +76,14 @@
 <div class="highlight highlight-source-json"><pre>{
   <span class="pl-s"><span class="pl-pds">"</span>presets<span class="pl-pds">"</span></span>: [<span class="pl-s"><span class="pl-pds">"</span>stage-0<span class="pl-pds">"</span></span>]
 }</pre></div>
-        </section>
-
-        <aside id="sidebar">
-          <a href="https://github.com/zenato/sbt-babel/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/zenato/sbt-babel/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
-
-          <p class="repo-owner"><a href="https://github.com/zenato/sbt-babel"></a> is maintained by <a href="https://github.com/zenato">zenato</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/zenato">zenato</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
     </div>
-
-            <script type="text/javascript">
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
