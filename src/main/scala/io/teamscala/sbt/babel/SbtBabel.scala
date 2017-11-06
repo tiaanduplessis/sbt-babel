@@ -9,8 +9,8 @@ import sbt._
 object Import {
 
   object BabelKeys {
-    val babel = TaskKey[Seq[File]]("babel", "Perform Babel compilation.")
-    val options = SettingKey[JS.Object]("babel-options", "Options for babel compilation.")
+    val babel = TaskKey[Seq[File]]("babel", "Perform Babel transpilation.")
+    val options = SettingKey[JS.Object]("babel-options", "Options for babel transpilation.")
   }
 
 }
@@ -29,7 +29,7 @@ object SbtBabel extends AutoPlugin {
   import autoImport.BabelKeys._
 
   val babelUnscopedSettings = Seq(
-    includeFilter := "*.es6.js" || "*.es6" || "*.react.js" || "*.jsx.js" || "*.jsx",
+    includeFilter := "*.js" || "*.jsx",
     jsOptions := options.value.js
   )
 
@@ -42,8 +42,8 @@ object SbtBabel extends AutoPlugin {
     Seq(
       moduleName := "babel",
       shellFile := getClass.getClassLoader.getResource("babel.js"),
-      taskMessage in Assets := "Babel compiling",
-      taskMessage in TestAssets := "Babel test compiling"
+      taskMessage in Assets := "Babel transpilation",
+      taskMessage in TestAssets := "Babel test transpilation"
     )
   ) ++ SbtJsTask.addJsSourceFileTasks(babel) ++ Seq(
     babel in Assets := (babel in Assets).dependsOn(nodeModules in Assets).value,
